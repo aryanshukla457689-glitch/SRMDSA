@@ -1,0 +1,104 @@
+// middle of the linked list 
+class Solution {
+    public ListNode middleNode(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;     
+            fast = fast.next.next;     
+        }
+
+        return slow;
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------
+  // Linked list  cycle
+  public class Solution {
+    public boolean hasCycle(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;          // 1 step
+            fast = fast.next.next;     // 2 steps
+
+            if (slow == fast) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+  // delete node in a linked list
+  class Solution {
+    public void deleteNode(ListNode node) {
+        node.val = node.next.val;
+        node.next = node.next.next;
+    }
+}
+
+        return false;
+    }
+}
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+// reverse a linked list
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        ListNode prev = null;
+        ListNode curr = head;
+
+        while (curr != null) {
+            ListNode next = curr.next; 
+            curr.next = prev;          
+            prev = curr;               
+            curr = next;               
+        }
+
+        return prev;
+    }
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+// Palindrome Linked List
+class Solution {
+    public boolean isPalindrome(ListNode head) {
+        if (head == null || head.next == null) {
+            return true;
+        }
+
+        
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        
+        ListNode prev = null;
+        while (slow != null) {
+            ListNode next = slow.next;
+            slow.next = prev;
+            prev = slow;
+            slow = next;
+        }
+
+        
+        ListNode first = head;
+        ListNode second = prev;
+
+        while (second != null) {
+            if (first.val != second.val) {
+                return false;
+            }
+            first = first.next;
+            second = second.next;
+        }
+
+        return true;
+    }
+}
