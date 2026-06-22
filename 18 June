@@ -1,4 +1,4 @@
-//Largest element in an array
+1. //Largest element in an array
 
 
 public class LargestNumber {
@@ -21,7 +21,7 @@ public class LargestNumber {
 
 -----------------------------------------------------------------------------------------------------------------------------
 
-//Second largest element in array
+2. //Second largest element in array
 
 public class SecondLargest {
     public static void main(String[] args) {
@@ -46,7 +46,7 @@ public class SecondLargest {
 ---------------------------------------------------------------------------------------------------------------------------------
 
 
-// Check if array is sorted and rotated
+3. // Check if array is sorted and rotated
 
 class Solution {
     public boolean check(int[] nums) {
@@ -65,7 +65,7 @@ class Solution {
 
 -----------------------------------------------------------------------------------------------------------------------------------
 
-// 2 sum problem 
+4.  // 2 sum problem 
 
 mport java.util.HashMap;
 class Solution {
@@ -88,7 +88,7 @@ class Solution {
         
 -----------------------------------------------------------------------------------------------------------------------------------------   
 
-// 2 sum II problem using 2 pointer approach
+5. // 2 sum II problem using 2 pointer approach
 
 
 import java.util.*;
@@ -121,7 +121,7 @@ public class sort{
 
 -----------------------------------------------------------------------------------------------------------------------------------------
 
-// subarray sum equals k
+6. // subarray sum equals k
 
 import java.util.HashMap;
 
@@ -146,5 +146,29 @@ class Solution {
         }
 
         return count;
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------
+
+7. // Majority Element(LeetCode 169)...
+
+class Solution {
+    public int majorityElement(int[] nums) {
+        int candidate = 0;
+        int count = 0;
+
+        for(int i=0; i<nums.length; i++)
+        {
+            if(count == 0){
+                candidate = nums[i];
+            }
+
+            if(nums[i] == candidate){
+                count++;
+            }
+            else
+            count--;
+        }
+        return candidate;
     }
 }
